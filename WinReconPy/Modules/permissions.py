@@ -101,14 +101,15 @@ for p in privs:
 
     state_upper = state.upper()
 
-    # 🔴 CRITICAL (só se estiver Enabled)
+    # 🔴 CRITICAL 
     if priv_name in critical_privs:
         print(f"{RED}[CRITICAL] {priv_name} - {state}{RESET}")
 
-    # 🟡 RED FLAG (só se estiver Enabled)
+    # 🟡 RED FLAG 
     elif priv_name in redflag_privs:
         print(f"{YELLOW}[RED FLAG] {priv_name} - {state}{RESET}")
 
     # 🟢 OK
     else:
         print(f"{GREEN}[OK] {priv_name} - {state}{RESET}")
+
