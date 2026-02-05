@@ -41,19 +41,6 @@ Executa uma auditoria rápida no sistema e retorna estatísticas importantes:
 
 ---
 
-## Estrutura do Projeto
-
-WinReconPy/
-│
-├── winrecon.py
-└── Modules/
-├── Enumeration.py
-├── permissions.py
-└── unquoted_service_paths.py
-
-
----
-
 ## Requisitos
 
 - Windows 10/11
@@ -68,7 +55,7 @@ WinReconPy/
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/<seu-usuario>/WinReconPy.git
+
 Entre na pasta do projeto:
 
 cd WinReconPy
