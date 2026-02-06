@@ -29,6 +29,9 @@ RESET = "\033[0m"
 
 dangerous_perms = ["SERVICE_CHANGE_CONFIG", "WRITE_DAC", "WRITE_OWNER"]
 
+
+vulneraveis = []
+
 for svc in services:
     name = svc["Name"]
     path = svc["PathName"]
@@ -42,8 +45,19 @@ for svc in services:
             print(f"{RED}[!]{RESET} {YELLOW}Vulnerável Possível:{RESET} {name}")
             print(f"{YELLOW}Path:{RESET} {path}\n")
 
-            folder = input("Digite o caminho para checar permissões e uma possível vulnerabilidade: ")
+            vulneraveis.append((name, path))
+            
+print(f"\n{YELLOW}===== LISTA FINAL DE SERVIÇOS VULNERÁVEIS ====={RESET}\n")
 
-            command = f'icacls "{folder}"'
-            output = run_ps(command)
-            print(output)
+for i, (name, path) in enumerate(vulneraveis, start=1):
+    print(f"{YELLOW}[{i}]{RESET} {name}")
+    print(f"    Path: {path}\n")
+
+folder = input("Digite o caminho para checar permissões: ")
+
+command = f'icacls "{folder}"'
+output = run_ps(command)
+
+if "Exemplos" not in output:
+    print(output)
+
